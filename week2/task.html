@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="IBU Login Page">
+    <title>IBU Login</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #817e7e;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin: 10px 0 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #d2d4d2;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        p.links {
+            margin-top: 15px;
+        }
+
+        u a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form action="/submit" method="post">
+        <img src="images/ibu-logo.png" alt="IBU Logo">
+    <h3>International Burch University</h3>
+
+    <h2>Login page</h2>
+
+    <p>Welcome. <br> Please Login</p>
+        <label for="email">Email: <input type="email" id="email" name="email" placeholder="Enter your email" required></label>
+        <br>
+        <label for="password">Password: <input type="password" id="password" name="password" placeholder="Enter your password"></label>
+
+        <p class="links">Don't have an account? <u><a href="registration.html">Register NOW</a></u></p>
+
+        <p><a href="forgotten-password.html">Forgot your password?</a></p>
+
+        <input type="submit" value="SUBMIT">
+    </form>
+
+</body>
+
+</html>

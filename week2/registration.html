@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 150px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 10px 0 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px; 
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    input[type="color"] {
+      height: 50px;
+      width:100px;
+      margin-right:300px;
+    }
+
+    input[type="submit"] {
+      background-color: #9e9e9e;
+      color: #fff;
+      cursor: pointer;
+      width:100px;
+      margin-left:280px
+    }
+
+    p {
+      margin-top: 15px;
+    }
+
+    u a {
+      text-decoration: none;
+      color: #0b0c0c;
+    }
+
+    img {
+      max-width: 200px;
+      height: 100px;
+      margin-bottom: 20px;
+      margin-top:10px
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <form action="/submit-registration" method="post">
+    <img src="images/ibu-logo.png" alt="Logo">
+    <h2>Imternational Burch University</h2> 
+    <h3>Registration Form</h3><br>
+    <label for="firstName">First Name: <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required></label>
+    <label for="lastName">Last Name: <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required></label>
+
+    <label for="username">Username: <input type="text" id="username" name="username" required></label>
+    <label for="password">Password: <input type="password" id="password" name="password" required></label>
+    <label for="dob">Date of Birth: <input type="date" id="dob" name="dob" required></label>
+    <label for="placeOfBirth">Place of Birth: <input type="text" id="placeOfBirth" name="placeOfBirth" required></label>
+
+    <label for="gender">Gender:
+      <select id="gender" name="gender">
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+        <option value="other">Other</option>
+      </select>
+    </label>
+
+    <label for="email">Email: <input type="email" id="email" name="email" required></label>
+    <label for="phone">Phone: <input type="tel" id="phone" name="phone"></label>
+    <label for="hairColor">Hair Color: <input type="color" id="hairColor" name="hairColor"></label>
+    <label for="notes">Notes: <textarea id="notes" name="notes"></textarea></label>
+
+    <label>
+      Receive Notifications: <input type="checkbox" id="receiveNotifications" name="receiveNotifications">
+    </label>
+
+    <input type="submit" value="Register">
+  </form>
+
+  <p>Already have an account? <u><a href="#">Login</a></u></p>
+
+</body>
+</html>
