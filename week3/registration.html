@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="task1.css">
+ 
+    
+</head>
+<body>
+
+<form action="/submit-registration" method="post">
+  <img src="images/ibu-logo" alt="Logo">
+  <h2>International Burch University</h2> 
+  <h3>Registration Form</h3>
+
+  <label for="firstName"><b>First Name:</b> <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required></label>
+  <label for="lastName"><b>Last Name:</b> <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required></label>
+
+  <label for="username"><b>Username:</b> <input type="text" id="username" name="username" required></label>
+  <label for="password"><b>Password:</b> <input type="password" id="password" name="password" required></label>
+  <label for="dob"><b>Date of Birth:</b> <input type="date" id="dob" name="dob" required></label>
+  <label for="placeOfBirth"><b>Place of Birth:</b> <input type="text" id="placeOfBirth" name="placeOfBirth" required></label>
+
+  <label for="gender"><b>Gender:</b>
+    <select id="gender" name="gender">
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+      <option value="other">Other</option>
+    </select>
+  </label>
+
+  <label for="email"><b>Email:</b> <input type="email" id="email" name="email" required></label>
+  <label for="phone"><b>Phone:</b> <input type="tel" id="phone" name="phone"></label>
+  <label for="hairColor"><b>Hair Color:</b> <input type="color" id="hairColor" name="hairColor"></label>
+  <label for="notes"><b>Notes:</b> <textarea id="notes" name="notes"></textarea></label>
+
+  <label>
+    <input type="checkbox" id="receiveNotifications" name="receiveNotifications"> <b>Receive Notifications</b>
+  </label>
+
+  <input type="submit" value="Register">
+</form>
+
+<p>Already have an account? <u><a href="#">Login</a></u></p>
+
+</body>
+</html>
