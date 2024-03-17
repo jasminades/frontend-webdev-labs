@@ -1,0 +1,59 @@
+body{
+    margin: 0 25% 0 25%;
+}
+
+
+p{
+    margin-top:60px;
+    font-size: 15px;
+    line-height:1rem;
+}
+
+.heading{
+    background-color: rgb(224, 182, 171);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    height:250px;
+}
+
+.heading h1{
+    font-weight: 60;
+    font-size: 3rem;
+}
+
+.heading img{
+    height:250px;
+}
+
+.products{
+    background-color: beige;
+    justify-content: space-around;
+    padding: 20px;
+    display:flex;
+    height:350px;
+}
+
+.products img{
+    height: 250px;
+    width:300px;
+}
+
+.products p{
+    font-size:20px;
+}
+
+footer{
+    background-color: rgb(224, 182, 171);
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    padding: 60px;
+    height:150px;
+    margin-top:2rem;
+}
+
+footer p{
+    font-size:1rem;
+    margin:0;
+}
