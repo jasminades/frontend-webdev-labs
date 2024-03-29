@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #dddddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        tr:hover {
+            background-color: #f5f5f5; 
+        }
+        .sort-icon {
+            float: right;
+            margin-top: 5px;
+        }
+
+        .profile-pic{
+            height:30px;
+            width:30px;
+        }
+    </style>
+</head>
+<body>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">ID <span class="sort-icon" id="idSort">&#9650;</span></th>
+                <th onclick="sortTable(1)">Name <span class="sort-icon" id="nameSort">&#9650;</span></th>
+                <th onclick="sortTable(2)">Country <span class="sort-icon" id="countrySort">&#9650;</span></th>
+                <th onclick="sortTable(3)">Email <span class="sort-icon" id="emailSort">&#9650;</span></th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <table border="1"> 
+               
+            </table> 
+        </tbody>
+    </table>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <script>
+        var userData = [
+            { id: 1, name: "John Doe", country: "Afganistan", email: "john1@example.com" },
+            { id: 2, name: "Jane Smith", country: "Albania", email: "jane2@example.com" },
+            { id: 3, name: "Jim Brown", country: "Algeria", email: "jim3@example.com" },
+            { id: 4, name: "Jake White", country: "Andorra", email: "jake4@example.com" },
+            { id: 5, name: "Julie Black", country: "Angola", email: "julie5@example.com" },
+            { id: 6, name: "Jennifer Green", country: "Antigua and Barbuda", email: "jennifer6@example.com" }
+        ];
+
+        function generateTable() {
+            var tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = ""; 
+            userData.forEach(function(user) {
+                var row = `<tr>
+                    <td>${user.id}</td>
+                    <td><img src="icon.png" class="profile-pic">${user.name}</td>
+                    <td>${user.country}</td>
+                    <td>${user.email}</td>
+                    <td><button onclick="showModal('${user.name}')">Click</button></td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+      
+        generateTable();
+
+        function toggleSortIcon(columnIndex) {
+            var sortIcons = document.querySelectorAll(".sort-icon");
+            sortIcons.forEach(function(icon) {
+                icon.innerHTML = "&#9650;"; 
+            });
+            var currentIcon = document.getElementById(`${columnIndex}Sort`);
+            currentIcon.innerHTML = "&#9650;"; 
+        }
+
+        function sortTable(columnIndex) {
+            userData.sort(function(a, b) {
+                var valueA = a[Object.keys(a)[columnIndex]];
+                var valueB = b[Object.keys(b)[columnIndex]];
+                return valueA.localeCompare(valueB);
+            });
+            generateTable(); 
+            toggleSortIcon(columnIndex);
+        }
+
+        function showModal(userName) {
+            var modal = document.getElementById("myModal");
+            var modalText = document.getElementById("modalText");
+            modalText.innerHTML = "You clicked on the user: " + userName;
+            modal.style.display = "block";
+        }
+
+        var closeBtn = document.getElementsByClassName("close")[0];
+        closeBtn.onclick = function() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        };
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>
