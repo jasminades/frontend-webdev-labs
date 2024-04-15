@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees Table</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="controls">
+        <select id="showEntities">
+            <option value="5">Show 5 entities</option>
+            <option value="10">Show 10 entities</option>
+            <option value="15">Show 15 entities</option>
+            <option value="20">Show 20 entities</option>
+        </select>
+
+        <input id="searchInput" placeholder="Search...">
+    </div>
+
+    <table id="employeesTable">
+        <thead>
+            <tr>
+                <th>Name <span class="sortIcon">&#9660;</span></th>
+                <th>Position <span class="sortIcon">&#9660;</span></th>
+                <th>Office <span class="sortIcon">&#9660;</span></th>
+                <th>Age <span class="sortIcon">&#9660;</span></th>
+                <th>Start Date <span class="sortIcon">&#9660;</span></th>
+                <th>Salary <span class="sortIcon">&#9660;</span></th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Table rows will be dynamically generated here -->
+        </tbody>
+    </table>
+
+    <div id="employeeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Define employee data
+        const employeesData = [
+            { name: "Prescott Bartlett", position: "Technical Author", office: "London", age: 27, startDate: "2011/05/07", salary: "$145,000" },
+            { name: "Gavin Cortez", position: "Team Leader", office: "San Francisco", age: 27, startDate: "2008/10/26", salary: "$235,000" },
+            { name: "Lael Greer", position: "System Administrator", office: "London", age: 21, startDate: "2009/02/27", salary: "$103,500" },
+            { name: "Prescott Bartlett", position: "Technical Author", office: "London", age: 27, startDate: "2011/05/07", salary: "$145,000" },
+            { name: "Gavin Cortez", position: "Team Leader", office: "San Francisco", age: 27, startDate: "2008/10/26", salary: "$235,000" },
+            { name: "Lael Greer", position: "System Administrator", office: "London", age: 21, startDate: "2009/02/27", salary: "$103,500" },
+            { name: "Prescott Bartlett", position: "Technical Author", office: "London", age: 27, startDate: "2011/05/07", salary: "$145,000" },
+            { name: "Gavin Cortez", position: "Team Leader", office: "San Francisco", age: 27, startDate: "2008/10/26", salary: "$235,000" },
+            { name: "Lael Greer", position: "System Administrator", office: "London", age: 21, startDate: "2009/02/27", salary: "$103,500" },
+            { name: "Prescott Bartlett", position: "Technical Author", office: "London", age: 27, startDate: "2011/05/07", salary: "$145,000" },
+            { name: "Gavin Cortez", position: "Team Leader", office: "San Francisco", age: 27, startDate: "2008/10/26", salary: "$235,000" },
+            { name: "Lael Greer", position: "System Administrator", office: "London", age: 21, startDate: "2009/02/27", salary: "$103,500" },
+            { name: "Prescott Bartlett", position: "Technical Author", office: "London", age: 27, startDate: "2011/05/07", salary: "$145,000" },
+            { name: "Gavin Cortez", position: "Team Leader", office: "San Francisco", age: 27, startDate: "2008/10/26", salary: "$235,000" },
+            { name: "Lael Greer", position: "System Administrator", office: "London", age: 21, startDate: "2009/02/27", salary: "$103,500" },
+            { name: "Prescott Bartlett", position: "Technical Author", office: "London", age: 27, startDate: "2011/05/07", salary: "$145,000" },
+            { name: "Gavin Cortez", position: "Team Leader", office: "San Francisco", age: 27, startDate: "2008/10/26", salary: "$235,000" },
+            { name: "Lael Greer", position: "System Administrator", office: "London", age: 21, startDate: "2009/02/27", salary: "$103,500" }
+            // Add more employee data as needed
+        ];
+
+        // Function to populate the table with employee data
+        function populateTable(numEntities) {
+            const tableBody = $("#tableBody");
+            tableBody.empty(); // Clear existing rows
+
+            for (let i = 0; i < numEntities; i++) {
+                const employee = employeesData[i];
+                if (!employee) break; // Exit loop if no more data
+
+                const row = `
+                    <tr>
+                        <td>${employee.name}</td>
+                        <td>${employee.position}</td>
+                        <td>${employee.office}</td>
+                        <td>${employee.age}</td>
+                        <td>${employee.startDate}</td>
+                        <td>${employee.salary}</td>
+                    </tr>
+                `;
+                tableBody.append(row);
+            }
+        }
+
+        // Populate the table with default number of entities
+        populateTable(5);
+
+        // Event listener for select dropdown
+        $("#showEntities").change(function() {
+            const numEntities = parseInt($(this).val());
+            populateTable(numEntities);
+        });
+    </script>
+</body>
+</html>
